@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#2a2a2a"/>
+  <circle cx="300" cy="250" r="100" fill="#555"/>
+  <rect x="200" y="350" width="200" height="120" rx="20" fill="#777"/>
+  <text x="300" y="530" text-anchor="middle" fill="white" font-family="Arial" font-size="24">
+    IMAGE PLACEHOLDER
+  </text>
+</svg>
