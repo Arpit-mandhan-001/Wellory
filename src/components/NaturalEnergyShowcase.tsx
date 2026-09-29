@@ -46,14 +46,14 @@ const SLIDES: Slide[] = [
     canImage: "/image/coffee.png",
     nutrition: NUTRITION_ORIGINAL,
     punchline_first: "Fuel Your",
-    punchline_second: "Fire",
+    punchline_second: "Wilder",
   },
   {
     flavor: "Lemon Flavor", // rename
     canImage: "/image/lemon.png",
     nutrition: NUTRITION_ORIGINAL2, // replace with this flavor's values
     punchline_first: "Make You",
-    punchline_second: "Wilder",
+    punchline_second: "Fuel",
   },
 ];
 /* -------------------------------------------------------- */
@@ -208,7 +208,7 @@ export default function NaturalEnergyShowcase() {
                 >
                   {slide.punchline_second}
 
-                  <span className="absolute -bottom-3 left-0 h-[6px] w-[62%] -rotate-2 rounded-full bg-red-600" />
+                  <span className="absolute -bottom-6 left-0 h-[6px] w-[62%] -rotate-2 rounded-full bg-red-600" />
                 </p>
               </div>
             </div>

@@ -294,7 +294,7 @@ export const NaturePowerSection: React.FC = () => {
 
                 {/* Back CAN */}
                 <motion.div
-                  className="absolute z-0"
+                  className="absolute z-0 "
                   initial={{ rotate: 8, x: 45, y: -10 }}
                   animate={{
                     rotate: [8, 10, 8],
@@ -307,7 +307,7 @@ export const NaturePowerSection: React.FC = () => {
                     ease: "easeInOut",
                   }}
                 >
-                  <CANHero />
+                  <CANHero1 />
                 </motion.div>
 
                 {/* Front CAN */}

@@ -108,17 +108,19 @@ const HeroSection1 = () => {
             ones who
           </span>
           <span
-            className={`${marker.className} mt-2 block -rotate-2 text-5xl uppercase text-[#D7FF3D] sm:text-6xl md:text-7xl lg:text-8xl`}
+            className={`${marker.className} mt-2 block -rotate-2 text-5xl uppercase text-[#D7FF3D] sm:text-6xl md:text-7xl lg:text-8xl mb-10`}
           >
-            Don&apos;t stop.
+            Don&apos;t
+            <br />
+            stop.
           </span>
         </h1>
 
-        <p className="max-w-sm font-poppins font-bold text-base leading-relaxed text-[#1A1A1A] sm:text-xl">
+        {/* <p className="max-w-sm font-poppins font-bold text-base leading-relaxed text-[#1A1A1A] sm:text-xl">
           Late nights. Early mornings.
           <br />
           Full throttle.
-        </p>
+        </p> */}
 
         <Link
           href="/enarj"

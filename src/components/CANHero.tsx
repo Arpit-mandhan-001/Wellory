@@ -14,7 +14,7 @@ const CANHero = () => {
   {/* Transparent can image */}
   <div className="relative w-full">
     <img
-      src="/image/transparentCola.png"
+      src="/image/coffee.png"
       alt="Dates Cola"
       className="relative z-10 h-auto w-full object-contain"
     />

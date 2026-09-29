@@ -93,7 +93,7 @@ const HeroSection2 = () => {
         alt=""
       />
 
-      <div className="absolute inset-y-0 left-0 z-20 flex w-full max-w-xl flex-col justify-center gap-6 px-6 md:px-12 lg:max-w-2xl -translate-y-8">
+      <div className="absolute inset-y-0 left-0 z-20 flex w-full max-w-xl flex-col justify-center gap-6 px-6 md:px-12 lg:max-w-2xl translate-y-5">
         <h1 className="leading-[0.95]">
           <span
             className={`${anton.className} block text-4xl italic uppercase text-white sm:text-5xl md:text-6xl lg:text-7xl`}
@@ -106,17 +106,21 @@ const HeroSection2 = () => {
             Life
           </span>
           <span
-            className={`${marker.className} mt-6 block -rotate-2 text-5xl uppercase text-[#D7FF3D] sm:text-6xl md:text-7xl lg:text-8xl`}
+            className={`${marker.className} mt-2 block -rotate-2 text-5xl uppercase text-[#D7FF3D] sm:text-6xl md:text-7xl lg:text-8xl mb-10`}
           >
-            Chase the Rush.
+            Chase 
+            <br/>
+            the 
+            <br />
+            Rush.
           </span>
         </h1>
 
-        <p className="max-w-sm text-black font-poppins font-bold text-base leading-relaxed  sm:text-lg">
+        {/* <p className="max-w-sm text-black font-poppins font-bold text-base leading-relaxed  sm:text-lg">
           Late nights. Early mornings.
           <br />
           Full throttle.
-        </p>
+        </p> */}
 
         <Link
           href="/enarj"
