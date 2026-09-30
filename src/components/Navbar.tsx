@@ -11,11 +11,11 @@ const Navbar = () => {
   return (
     <nav className="relative z-50 flex items-center justify-between bg-[#350303]/30 px-5 py-3 md:px-7 md:py-4">
       {/* Logo */}
-      <div className="ml-1 rounded-xl px-2 py-1 md:ml-4">
+      <div className="ml-1 px-2 py-1 md:ml-4">
         <img
           src="/image/Logo2.png"
           alt="WELLORY"
-          className="h-11 w-auto object-contain md:h-12"
+          className="h-11 w-auto object-contain md:h-12 rounded-xs"
         />
       </div>
 
