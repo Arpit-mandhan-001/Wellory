@@ -157,7 +157,7 @@ export const NaturePowerSection: React.FC = () => {
     <section
       ref={sectionRef}
       id="nature-power"
-      className="relative w-full bg-black text-white overflow-hidden select-none"
+      className="relative w-full bg-black text-white overflow-hidden select-none pt-10 pb-10"
     >
 
         <img
@@ -167,7 +167,7 @@ export const NaturePowerSection: React.FC = () => {
   />
 
       {/* Subtle Background Ambience */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] max-w-[90vw] max-h-[70vh] bg-red-950/20 rounded-full blur-[160px] pointer-events-none -z-10" />
+      <div className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] max-w-[90vw] max-h-[70vh] bg-red-950/20 rounded-full blur-[160px] pointer-events-none -z-10 mt-10 mb-10" />
 
       <div className="w-full flex flex-col items-center">
         {/* ================= STEPPED FRAME CONTAINER ================= */}
