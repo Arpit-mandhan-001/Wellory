@@ -40,7 +40,7 @@ export const NaturePowerSection: React.FC = () => {
     {
       id: "f2",
       badge: "002",
-      title: "REFRESHING AND BALANCED TASTE",
+      title: "REFRESHING TASTE",
       description:
         "THE FLAVOR OF ENARJ COLA ENERGY DRINK IS METICULOUSLY CRAFTED TO STRIKE THE PERFECT BALANCE BETWEEN NATURAL SWEETNESS AND TANGINESS, DELIVERING A REFRESHING AND ENJOYABLE TASTE.",
     },
@@ -172,8 +172,8 @@ export const NaturePowerSection: React.FC = () => {
             lg:w-full
             max-w-6xl
             h-[1120px]
-            min-[480px]:h-[1050px]
-            sm:h-[900px]
+            min-[480px]:h-[900px]
+            sm:h-[200px]
             md:h-[750px]
             lg:h-[780px]
             mt-3
@@ -444,11 +444,11 @@ export const NaturePowerSection: React.FC = () => {
                 onMouseEnter={() => setHoveredId("f2")}
                 onMouseLeave={() => setHoveredId(null)}
               >
-                <div className="np-badge-1 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 py-0.5 text-[15px] min-[480px]:text-[18px] font-medium text-zinc-800 uppercase">
+                <div className="np-badge-1 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 mb-2 py-0.5 text-[15px] min-[480px]:text-[18px] font-medium text-zinc-800 uppercase">
                   {features[1].badge}
                 </div>
 
-                <h3 className="text-[15px] min-[400px]:text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase leading-tight">
+                <h3 className="text-[15px] min-[400px]:text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase leading-tight mb-2">
                   <SplitText
                     text={features[1].title}
                     letterClass="np-l1"
