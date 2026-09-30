@@ -106,7 +106,7 @@ const HeroSection2 = () => {
             Life
           </span>
           <span
-            className={`${marker.className} mt-2 mb-10 block -rotate-2 text-3xl uppercase tracking-wide text-[#fdf905] sm:text-xl md:text-5xl lg:text-8xl`}
+            className={`${marker.className} mt-2 mb-10 block -rotate-2 text-3xl uppercase tracking-wide text-[#fdf905] sm:text-xl md:text-5xl lg:text-7xl`}
           >
             <span className="whitespace-nowrap md:hidden">Chase the</span>
             <span className="hidden md:inline">

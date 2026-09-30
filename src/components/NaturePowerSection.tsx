@@ -29,36 +29,37 @@ export const NaturePowerSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
-  const features: FeatureItem[] = [
-    {
-      id: "f1",
-      badge: "001",
-      title: "UNIQUE FUSION",
-      description:
-        "ENARJ COLA ENERGY DRINK OFFERS A ONE-OF-A-KIND BLEND, COMBINING THE CLASSIC AND BELOVED TASTE OF COLA WITH A POWERFUL ENERGY-BOOSTING FORMULA SOURCED FROM MEDJOOL DATES.",
-    },
-    {
-      id: "f2",
-      badge: "002",
-      title: "REFRESHING TASTE",
-      description:
-        "THE FLAVOR OF ENARJ COLA ENERGY DRINK IS METICULOUSLY CRAFTED TO STRIKE THE PERFECT BALANCE BETWEEN NATURAL SWEETNESS AND TANGINESS, DELIVERING A REFRESHING AND ENJOYABLE TASTE.",
-    },
-    {
-      id: "f3",
-      badge: "003",
-      title: "VERSATILE ENERGY SOLUTION",
-      description:
-        "POWERED BY WHOLE-FRUIT FIBER, LOW-GLYCEMIC DATE SUGARS, AND 80MG OF ORGANIC GREEN TEA CAFFEINE TO MAINTAIN VIGOR WITHOUT JITTERS OR SUDDEN CRASHES.",
-    },
-    {
-      id: "f4",
-      badge: "004",
-      title: "ENHANCED FOCUS AND ALERTNESS",
-      description:
-        "BEYOND ITS DELIGHTFUL TASTE, ENARJ COLA ENERGY DRINK IS FORMULATED WITH ESSENTIAL B-VITAMINS (B3, B6, B12) TO ENHANCE YOUR MENTAL CLARITY AND ALERTNESS.",
-    },
-  ];
+ const features: FeatureItem[] = [
+  {
+    id: "f1",
+    badge: "001",
+    title: "ENERGY THAT DOES MORE",
+    description:
+      "ENARJ COLA ENERGY DRINK BLENDS THE CLASSIC TASTE OF COLA WITH THE NATURAL GOODNESS OF MEDJOOL DATES, CREATING A REFRESHING ENERGY DRINK FOR AN ACTIVE LIFESTYLE",
+  },
+  {
+    id: "f2",
+    badge: "002",
+    title: "SUPPORTS FAT METABOLISM",
+    description:
+      "CRAFTED WITH DATE-BASED INGREDIENTS, ENARJ IS DESIGNED TO SUPPORT METABOLIC ACTIVITY AND FAT METABOLISM WHILE HELPING YOU STAY ENERGIZED AND ACTIVE.",
+  },
+  {
+    id: "f3",
+    badge: "003",
+    title: "TESTOSTERONE SUPPORT",
+    description:
+      "ENARJ COMBINES THE NATURAL GOODNESS OF DATES WITH A FUNCTIONAL ENERGY FORMULA DESIGNED TO SUPPORT HEALTHY TESTOSTERONE LEVELS, ENERGY, AND DAILY PERFORMANCE.",
+  },
+  {
+    id: "f4",
+    badge: "004",
+    title: "ENHANCED FOCUS AND ALERTNESS",
+    description:
+      "BEYOND ITS DELIGHTFUL TASTE, ENARJ COLA ENERGY DRINK IS FORMULATED WITH ESSENTIAL B VITAMINS, INCLUDING B3, B6, AND B12, TO SUPPORT MENTAL ALERTNESS AND DAILY FOCUS.",
+  },
+];
+
 
   // Scroll-in intro (plays once): dates rise from the bottom -> then for each callout in turn:
   // dot, line drawing from the image toward the text, badge, then title + description letter by letter

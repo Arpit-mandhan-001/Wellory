@@ -1,76 +1,129 @@
-"use client"
+"use client";
 
-import { Menu } from 'lucide-react'
-import React, { useState } from 'react'
+import { Menu, X } from "lucide-react";
+import React, { useState } from "react";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav className="relative flex justify-between items-center pl-7 pr-7 pt-4 pb-4 bg-transparent border-b border-white/20">
-
-      <div className="text-2xl font-semibold tracking-widest font-bingo-regular">
-        WELLORY
+    <nav className="relative z-50 flex items-center justify-between bg-[#350303]/30 px-5 py-3 md:px-7 md:py-4">
+      {/* Logo */}
+      <div className="ml-1 rounded-xl px-2 py-1 md:ml-4">
+        <img
+          src="/image/Logo2.png"
+          alt="WELLORY"
+          className="h-11 w-auto object-contain md:h-12"
+        />
       </div>
 
-      <div className="flex items-center gap-8 lg:gap-40">
+      {/* Desktop Navigation */}
+      <div className="hidden items-center md:flex">
+        <div className="flex items-center gap-16 text-white font-bold lg:gap-24">
+          <a
+            href="#nature-power"
+            className="transition-all duration-300 hover:-translate-y-0.5 hover:text-[#f5d6b3]"
+          >
+            Product
+          </a>
 
-        <div
-          className={`
-            absolute md:static
-            top-full left-0
-            w-full md:w-auto
-            md:bg-transparent
-            flex flex-col md:flex-row
-            items-center
-            mr-10
-            gap-8 md:gap-30
-            py-8 md:py-0
-            shadow-md md:shadow-none
-            transition-all duration-500 ease-in-out
-            ${isOpen
-              ? "opacity-100 translate-y-0 visible"
-              : "opacity-0 -translate-y-5 invisible md:opacity-100 md:translate-y-0 md:visible"
-            }
-          `}
-        >
-          <div className="scroll-smooth flex flex-col md:flex-row gap-6 md:gap-24 text-white font-bold">
+          <a
+            href="#story"
+            className="transition-all duration-300 hover:-translate-y-0.5 hover:text-[#f5d6b3]"
+          >
+            Story
+          </a>
+
+          <a
+            href="#shop"
+            className="transition-all duration-300 hover:-translate-y-0.5 hover:text-[#f5d6b3]"
+          >
+            Shop
+          </a>
+        </div>
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="relative z-[60] flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20 active:scale-95 md:hidden"
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+        aria-expanded={isOpen}
+      >
+        {isOpen ? (
+          <X className="h-5 w-5" />
+        ) : (
+          <Menu className="h-5 w-5" />
+        )}
+      </button>
+
+      {/* Mobile Backdrop */}
+      <div
+        onClick={closeMenu}
+        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px] transition-all duration-300 md:hidden ${
+          isOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
+        }`}
+      />
+
+      {/* Mobile Menu */}
+      <div
+        className={`absolute right-4 top-[calc(100%+10px)] z-50 w-[calc(100%-2rem)] max-w-sm origin-top-right transition-all duration-300 ease-out md:hidden ${
+          isOpen
+            ? "visible translate-y-0 scale-100 opacity-100"
+            : "invisible -translate-y-3 scale-95 opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden rounded-2xl border border-white/15 bg-black/95 p-3 shadow-2xl backdrop-blur-xl">
+          {/* Small header */}
+          <div className="mb-2 flex items-center justify-between border-b border-white/10 px-4 pb-3">
+            <span className="text-xs font-medium uppercase tracking-[0.25em] text-white/50">
+              Explore
+            </span>
+          </div>
+
+          {/* Links */}
+          <div className="flex flex-col">
             <a
               href="#nature-power"
-              className="transition-all duration-300 hover:text-black hover:-translate-y-0.5"
+              onClick={closeMenu}
+              className="group flex items-center justify-between rounded-xl px-4 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-white/10 active:bg-white/15"
             >
-              Product
+              <span>Product</span>
+              <span className="text-white/30 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white">
+                →
+              </span>
             </a>
 
             <a
               href="#story"
-              className="transition-all duration-300 hover:text-black hover:-translate-y-0.5"
+              onClick={closeMenu}
+              className="group flex items-center justify-between rounded-xl px-4 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-white/10 active:bg-white/15"
             >
-              Story
+              <span>Story</span>
+              <span className="text-white/30 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white">
+                →
+              </span>
             </a>
 
             <a
               href="#shop"
-              className="transition-all duration-300 hover:text-black hover:-translate-y-0.5"
+              onClick={closeMenu}
+              className="group flex items-center justify-between rounded-xl px-4 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-white/10 active:bg-white/15"
             >
-              Shop
+              <span>Shop</span>
+              <span className="text-white/30 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white">
+                →
+              </span>
             </a>
           </div>
-
-        
         </div>
-
-        {/* Mobile Hamburger */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex flex-col gap-1.5 z-50 text-white"
-          aria-label="Toggle menu"
-        >
-          <Menu />
-        </button>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

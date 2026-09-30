@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <Link href="#" aria-label="ENARJ home" className="block shrink-0">
             <Image
-              src={"/image/enraj_watermark.png"}
+              src={"/image/Logo2.png"}
               alt="ENARJ"
               width={"100"}
               height={"100"}
@@ -108,7 +108,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom row: copyright, divider line, tagline */}
         <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-[11px] text-zinc-400">
-          <span className="shrink-0">© 2026 ENARJ. All rights reserved.</span>
+          <span className="shrink-0">© 2026 WELLORY. All rights reserved.</span>
           <span aria-hidden="true" className="hidden md:block flex-1 h-px bg-white/15" />
           <ul className="flex items-center gap-3 font-semibold tracking-[0.15em] uppercase text-zinc-300 shrink-0">
             {TAGLINE.map((word, idx) => (
