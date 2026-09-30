@@ -80,6 +80,7 @@ export const NaturePowerSection: React.FC = () => {
         paused: true,
         defaults: { ease: "power3.out" },
       });
+
       tl.fromTo(
         ".np-image",
         { y: 180, opacity: 0 },
@@ -89,6 +90,7 @@ export const NaturePowerSection: React.FC = () => {
 
       CONNECTORS.forEach((_, i) => {
         const t = 1.2 + i * 1.7;
+
         tl.fromTo(
           `.np-dot-${i}`,
           { attr: { r: 0 }, opacity: 0 },
@@ -97,13 +99,22 @@ export const NaturePowerSection: React.FC = () => {
         )
           .to(
             `.np-line-${i}`,
-            { strokeDashoffset: 0, duration: 0.8, ease: "power2.inOut" },
+            {
+              strokeDashoffset: 0,
+              duration: 0.8,
+              ease: "power2.inOut",
+            },
             t + 0.2,
           )
           .fromTo(
             `.np-badge-${i}`,
             { scale: 0.6, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2)" },
+            {
+              scale: 1,
+              opacity: 1,
+              duration: 0.5,
+              ease: "back.out(2)",
+            },
             t + 0.8,
           )
           .fromTo(
@@ -129,30 +140,12 @@ export const NaturePowerSection: React.FC = () => {
         },
         { threshold: 0.25 },
       );
+
       observer.observe(section);
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
-
-  //   const handleShopClick = () => {
-  //     soundEngine.playClick();
-  //     const target =
-  //       document.getElementById("flavors") || document.getElementById("shop");
-  //     if (target) {
-  //       target.scrollIntoView({ behavior: "smooth" });
-  //     }
-  //   };
-
-  //   const handleLinkClick = () => {
-  //     soundEngine.playClick();
-  //     const target =
-  //       document.getElementById("whats-inside") ||
-  //       document.getElementById("ingredients");
-  //     if (target) {
-  //       target.scrollIntoView({ behavior: "smooth" });
-  //     }
-  //   };
 
   // Mathematically computed stepped tab SVG path for 1000x680 viewBox
   // Left raised tab (y=0), Lowered center shelf (y=46), Right stepped-up tab (y=0)
@@ -163,31 +156,32 @@ export const NaturePowerSection: React.FC = () => {
     <section
       ref={sectionRef}
       id="nature-power"
-      className="relative w-full bg-black text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-12 overflow-hidden select-none"
+      className="relative w-full bg-black text-white overflow-hidden select-none"
     >
       {/* Subtle Background Ambience */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-red-950/20 rounded-full blur-[160px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] max-w-[90vw] max-h-[70vh] bg-red-950/20 rounded-full blur-[160px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto flex flex-col items-center">
-        {/* Top Eyebrow */}
-        {/* <div className="flex items-center justify-center gap-3 text-xs md:text-sm font-extrabold tracking-[0.25em] text-zinc-400 uppercase mb-3">
-          <span className="w-8 md:w-10 h-[2px] bg-[#ea2027]" />
-          <span>NATURE&apos;S POWER</span>
-          <span className="w-8 md:w-10 h-[2px] bg-[#ea2027]" />
-        </div> */}
-
-        {/* Section Headline */}
-        {/* <h2 className="text-center font-black tracking-tight uppercase mb-8 sm:mb-12">
-          <span className="block text-3xl sm:text-4xl md:text-5xl text-white">
-            PURE INGREDIENTS.D
-          </span>
-          <span className="block text-3xl sm:text-4xl md:text-5xl text-[#ea2027] mt-1">
-            PEAK PERFORMANCE.
-          </span>
-        </h2> */}
-
+      <div className="w-full flex flex-col items-center">
         {/* ================= STEPPED FRAME CONTAINER ================= */}
-        <div className="relative w-full max-w-7xl h-[780px] sm:h-[720px] md:h-[880px]">
+        <div
+          className="
+            relative
+            w-[calc(100%-24px)]
+            sm:w-[calc(100%-32px)]
+            md:w-[calc(100%-48px)]
+            lg:w-full
+            max-w-6xl
+            h-[1120px]
+            min-[480px]:h-[1050px]
+            sm:h-[900px]
+            md:h-[750px]
+            lg:h-[780px]
+            mt-3
+            sm:mt-5
+            mb-3
+            sm:mb-5
+          "
+        >
           {/* Stepped Frame SVG Background with sleek border & backdrop */}
           <div className="absolute inset-0 w-full h-full pointer-events-none">
             <svg
@@ -207,6 +201,7 @@ export const NaturePowerSection: React.FC = () => {
                   <stop offset="0%" stopColor="#F5DEB3" />
                   <stop offset="100%" stopColor="#F5DEB3" />
                 </linearGradient>
+
                 <linearGradient
                   id="steppedCardBorder"
                   x1="0%"
@@ -219,6 +214,7 @@ export const NaturePowerSection: React.FC = () => {
                   <stop offset="100%" stopColor="rgba(0,0,0,0.18)" />
                 </linearGradient>
               </defs>
+
               <path
                 d={steppedPath}
                 fill="url(#steppedCardBg)"
@@ -228,57 +224,56 @@ export const NaturePowerSection: React.FC = () => {
             </svg>
           </div>
 
-          {/* ================= STEPPED SHELF CONTROLS (BUTTONS) ================= */}
-          {/* Left Step Button: SHOP NOW */}
-          {/* <div className="absolute left-4 sm:left-7 md:left-8 top-1.5 sm:top-2 md:top-2.5 z-30">
-            <button
-              type="button"
-              onClick={handleShopClick}
-              className="inline-flex items-center gap-2 bg-[#ea2027] hover:bg-[#ff3038] text-white font-bold text-[11px] sm:text-xs uppercase tracking-wider px-5 sm:px-6 py-2.5 rounded-full shadow-[0_4px_20px_rgba(234,32,39,0.4)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
-            >
-              <span>SHOP</span>
-              <ArrowRight size={14} className="stroke-[2.5]" />
-            </button>
-          </div> */}
-
-          {/* Right Step Button: ENARJ.IO */}
-          {/* <div className="absolute right-4 sm:right-7 md:right-8 top-1.5 sm:top-2 md:top-2.5 z-30">
-            <button
-              type="button"
-              onClick={handleLinkClick}
-              className="inline-flex items-center gap-2 bg-white hover:bg-zinc-100 text-zinc-950 font-bold text-[11px] sm:text-xs uppercase tracking-wider px-5 sm:px-6 py-2.5 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
-            >
-              <span>ENARJ.IO</span>
-              <ArrowRight size={14} className="stroke-[2.5]" />
-            </button>
-          </div> */}
-
-          {/* Center Raised Roof: 3D Product Breakout Visual */}
-          {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[45%] pointer-events-none z-20 w-36 sm:w-44 md:w-52 aspect-[1/2] flex items-center justify-center">
-            <Image
-              src={enarjCanImg}
-              alt="ENARJ 250ml Can Breakout"
-              className="w-full h-auto object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)] opacity-95"
-            />
-          </div> */}
-
           {/* ================= INSIDE THE FRAME: CONTENT & CALLOUTS ================= */}
-          <div className="relative z-20 w-full h-full p-6 sm:p-8 md:p-12 flex flex-col justify-between pt-16 sm:pt-20">
-            {/* Top Right: Ingredient Breakdown Callout Matching Reference UI */}
-            {/* <div className="absolute top-16 sm:top-20 right-6 sm:right-10 flex items-start gap-3 max-w-[270px] pointer-events-none z-20 hidden md:flex">
-              <div className="w-8 h-8 rounded-full border border-white/30 bg-white/10 flex items-center justify-center shrink-0 text-white shadow-inner">
-                <Droplet size={15} className="fill-white/30" />
-              </div>
-              <p className="text-[10px] leading-relaxed text-zinc-400 font-mono uppercase tracking-wide">
-                carbonated water (60%), water (11%), organic medjool dates syrup, natural green tea caffeine,
-                essential vitamins, minerals.
-              </p>
-            </div> */}
-
+          <div
+            className="
+              relative
+              z-20
+              w-full
+              h-full
+              px-5
+              min-[480px]:px-6
+              sm:px-8
+              md:px-12
+              pt-14
+              min-[480px]:pt-16
+              sm:pt-20
+              pb-10
+              flex
+              flex-col
+              justify-between
+            "
+          >
             {/* Central Splashing Dates Visual */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 mr-8 translate-y-70">
+            <div
+              className="
+                absolute
+                inset-0
+                flex
+                items-center
+                justify-center
+                pointer-events-none
+                z-10
+                mr-0
+                md:mr-8
+                translate-y-0
+                md:translate-y-70
+              "
+            >
               <motion.div
-                className="relative w-[340px] sm:w-[420px] md:w-[710px] aspect-square flex items-center justify-center"
+                className="
+                  relative
+                  w-[270px]
+                  min-[400px]:w-[300px]
+                  min-[480px]:w-[340px]
+                  sm:w-[400px]
+                  md:w-[500px]
+                  lg:w-[710px]
+                  aspect-square
+                  flex
+                  items-center
+                  justify-center
+                "
                 animate={{
                   scale: [1, 1.02, 1],
                 }}
@@ -289,16 +284,17 @@ export const NaturePowerSection: React.FC = () => {
                 }}
               >
                 {/* Radial Amber Backlight */}
-                <div className="absolute w-72 h-72 rounded-full bg-amber-600/15 blur-3xl" />
-                <div className="absolute w-60 h-60 rounded-full bg-red-600/15 blur-2xl" />
+                <div className="absolute w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-amber-600/15 blur-3xl" />
+
+                <div className="absolute w-48 h-48 sm:w-60 sm:h-60 rounded-full bg-red-600/15 blur-2xl" />
 
                 {/* Back CAN */}
                 <motion.div
-                  className="absolute z-0 "
+                  className="absolute z-0 scale-[0.72] min-[400px]:scale-[0.8] sm:scale-90 md:scale-100 translate-x-22 md:-translate-x-10"
                   initial={{ rotate: 8, x: 45, y: -10 }}
                   animate={{
-                    rotate: [8, 10, 8],
-                    x: [45, 48, 45],
+                    rotate: [8, 12, 8],
+                    x: [45, 54, 45],
                     y: [-10, -13, -10],
                   }}
                   transition={{
@@ -312,7 +308,7 @@ export const NaturePowerSection: React.FC = () => {
 
                 {/* Front CAN */}
                 <motion.div
-                  className="absolute z-10"
+                  className="absolute z-10 scale-[0.72] min-[400px]:scale-[0.8] sm:scale-90 md:scale-100 translate-x-35 md:-translate-x-15"
                   initial={{ rotate: -6, x: -15, y: 15 }}
                   animate={{
                     rotate: [-6, -4, -6],
@@ -330,7 +326,7 @@ export const NaturePowerSection: React.FC = () => {
               </motion.div>
             </div>
 
-            {/* Desktop SVG Connecting Lines (drawn from the image toward the text) */}
+            {/* Desktop SVG Connecting Lines */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none z-15 hidden md:block"
               aria-hidden="true"
@@ -356,6 +352,7 @@ export const NaturePowerSection: React.FC = () => {
                   </mask>
                 ))}
               </defs>
+
               {CONNECTORS.map((c, i) => (
                 <React.Fragment key={c.id}>
                   <path
@@ -363,10 +360,13 @@ export const NaturePowerSection: React.FC = () => {
                     fill="none"
                     stroke="rgba(24,24,27,0.55)"
                     strokeWidth="1.25"
-                    strokeDasharray={hoveredId === c.id ? "none" : "4 3"}
+                    strokeDasharray={
+                      hoveredId === c.id ? "none" : "4 3"
+                    }
                     mask={`url(#np-mask-${i})`}
                     className="transition-all duration-300"
                   />
+
                   <circle
                     cx={c.dot.cx}
                     cy={c.dot.cy}
@@ -378,21 +378,49 @@ export const NaturePowerSection: React.FC = () => {
               ))}
             </svg>
 
-            {/* 4 Feature Callouts (001, 002, 003, 004) */}
-            <div className="relative z-20 w-full h-full grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-36 justify-between">
+            {/* 4 Feature Callouts */}
+            <div
+              className="
+                relative
+                z-20
+                w-full
+                h-full
+                grid
+                grid-cols-1
+                md:grid-cols-2
+                gap-y-10
+                min-[480px]:gap-y-14
+                sm:gap-y-20
+                md:gap-y-36
+                justify-between
+              "
+            >
               {/* 001: Top Left Callout */}
               <div
-                className="max-w-[270px] space-y-2 cursor-pointer transition-transform duration-200 hover:translate-x-1"
+                className="
+                  w-full
+                  max-w-[270px]
+                  space-y-2
+                  cursor-pointer
+                  transition-transform
+                  duration-200
+                  hover:translate-x-1
+                "
                 onMouseEnter={() => setHoveredId("f1")}
                 onMouseLeave={() => setHoveredId(null)}
               >
-                <div className="np-badge-0 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 py-0.5 text-[18px] font-medium text-zinc-800 uppercase">
+                <div className="np-badge-0 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 py-0.5 text-[15px] min-[480px]:text-[18px] font-medium text-zinc-800 uppercase">
                   {features[0].badge}
                 </div>
-                <h3 className="text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase">
-                  <SplitText text={features[0].title} letterClass="np-l0" />
+
+                <h3 className="text-[15px] min-[400px]:text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase leading-tight">
+                  <SplitText
+                    text={features[0].title}
+                    letterClass="np-l0"
+                  />
                 </h3>
-                <p className="text-zinc-700 font-raleway font-bold text-[11px] sm:text-[16px] leading-relaxed uppercase">
+
+                <p className="text-zinc-700 font-raleway font-bold text-[10px] min-[400px]:text-[11px] sm:text-[16px] leading-relaxed uppercase">
                   <SplitText
                     text={features[0].description}
                     letterClass="np-l0"
@@ -402,17 +430,32 @@ export const NaturePowerSection: React.FC = () => {
 
               {/* 002: Top Right Callout */}
               <div
-                className="max-w-[280px] space-y-2 md:text-left md:ml-auto cursor-pointer transition-transform duration-200 hover:-translate-x-1"
+                className="
+                  w-full
+                  max-w-[280px]
+                  -space-y-2
+                  md:text-left
+                  md:ml-auto
+                  cursor-pointer
+                  transition-transform
+                  duration-200
+                  hover:-translate-x-1
+                "
                 onMouseEnter={() => setHoveredId("f2")}
                 onMouseLeave={() => setHoveredId(null)}
               >
-                <div className="np-badge-1 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 py-0.5 text-[18px] font-medium text-zinc-800 uppercase">
+                <div className="np-badge-1 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 py-0.5 text-[15px] min-[480px]:text-[18px] font-medium text-zinc-800 uppercase">
                   {features[1].badge}
                 </div>
-                <h3 className="text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase">
-                  <SplitText text={features[1].title} letterClass="np-l1" />
+
+                <h3 className="text-[15px] min-[400px]:text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase leading-tight">
+                  <SplitText
+                    text={features[1].title}
+                    letterClass="np-l1"
+                  />
                 </h3>
-                <p className="text-zinc-700 font-raleway font-bold text-[11px] sm:text-[16px] leading-relaxed uppercase">
+
+                <p className="text-zinc-700 font-raleway font-bold text-[10px] min-[400px]:text-[11px] sm:text-[16px] leading-relaxed uppercase">
                   <SplitText
                     text={features[1].description}
                     letterClass="np-l1"
@@ -422,17 +465,31 @@ export const NaturePowerSection: React.FC = () => {
 
               {/* 003: Bottom Left Callout */}
               <div
-                className="max-w-[270px] space-y-2 cursor-pointer transition-transform duration-200 hover:translate-x-1 mt-auto"
+                className="
+                  w-full
+                  max-w-[270px]
+                  space-y-2
+                  cursor-pointer
+                  transition-transform
+                  duration-200
+                  hover:translate-x-1
+                  mt-auto
+                "
                 onMouseEnter={() => setHoveredId("f3")}
                 onMouseLeave={() => setHoveredId(null)}
               >
-                <div className="np-badge-2 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 py-0.5 text-[18px] font-medium text-zinc-800 uppercase">
+                <div className="np-badge-2 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 py-0.5 text-[15px] min-[480px]:text-[18px] font-medium text-zinc-800 uppercase">
                   {features[2].badge}
                 </div>
-                <h3 className="text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase">
-                  <SplitText text={features[2].title} letterClass="np-l2" />
+
+                <h3 className="text-[15px] min-[400px]:text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase leading-tight">
+                  <SplitText
+                    text={features[2].title}
+                    letterClass="np-l2"
+                  />
                 </h3>
-                <p className="font-raleway font-bold text-zinc-700 text-[11px] sm:text-[16px] leading-relaxed uppercase">
+
+                <p className="font-raleway font-bold text-zinc-700 text-[10px] min-[400px]:text-[11px] sm:text-[16px] leading-relaxed uppercase">
                   <SplitText
                     text={features[2].description}
                     letterClass="np-l2"
@@ -442,17 +499,33 @@ export const NaturePowerSection: React.FC = () => {
 
               {/* 004: Bottom Right Callout */}
               <div
-                className="max-w-[280px] space-y-2 md:text-left md:ml-auto cursor-pointer transition-transform duration-200 hover:-translate-x-1 mt-auto"
+                className="
+                  w-full
+                  max-w-[280px]
+                  space-y-2
+                  md:text-left
+                  md:ml-auto
+                  cursor-pointer
+                  transition-transform
+                  duration-200
+                  hover:-translate-x-1
+                  mt-auto
+                "
                 onMouseEnter={() => setHoveredId("f4")}
                 onMouseLeave={() => setHoveredId(null)}
               >
-                <div className="np-badge-3 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 py-0.5 text-[18px] font-medium text-zinc-800 uppercase">
+                <div className="np-badge-3 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 py-0.5 text-[15px] min-[480px]:text-[18px] font-medium text-zinc-800 uppercase">
                   {features[3].badge}
                 </div>
-                <h3 className="text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase">
-                  <SplitText text={features[3].title} letterClass="np-l3" />
+
+                <h3 className="text-[15px] min-[400px]:text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase leading-tight">
+                  <SplitText
+                    text={features[3].title}
+                    letterClass="np-l3"
+                  />
                 </h3>
-                <p className="text-zinc-700 font-raleway font-bold text-[11px] sm:text-[16px] leading-relaxed uppercase">
+
+                <p className="text-zinc-700 font-raleway font-bold text-[10px] min-[400px]:text-[11px] sm:text-[16px] leading-relaxed uppercase">
                   <SplitText
                     text={features[3].description}
                     letterClass="np-l3"

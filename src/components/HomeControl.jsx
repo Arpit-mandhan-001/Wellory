@@ -33,7 +33,7 @@ export default function HomeControl() {
       
       {/* HERO SLIDER */}
       <div
-        className="flex h-screen w-[200%] transition-transform duration-[900ms] ease-[cubic-bezier(0.76,0,0.24,1)] "
+        className="flex h-screen w-[200%] transition-transform duration-[900ms] ease-[cubic-bezier(0.76,0,0.24,1)]"
         style={{
           transform: `translate3d(-${currentPage * 50}%, 0, 0)`,
         }}
@@ -62,17 +62,16 @@ export default function HomeControl() {
       </div>
 
       {/* BOTTOM RIGHT CONTROLS */}
-      <div className="absolute bottom-8 right-40 z-50 flex items-center gap-3">
+      <div className="absolute top-88 right-8 z-50 flex items-center gap-3 max-sm:right-4 max-sm:gap-2">
         
         {/* PREVIOUS */}
         <button
           onClick={previousPage}
           disabled={isAnimating}
           aria-label="Previous hero"
-          className=" group flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:border-white/50 hover:bg-white hover:text-black active:scale-95 disabled:pointer-events-none
-          "
+          className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:border-white/50 hover:bg-white hover:text-black active:scale-95 disabled:pointer-events-none max-sm:h-10 max-sm:w-10"
         >
-          <span className="text-xl transition-transform duration-300 group-hover:-translate-x-1">
+          <span className="text-xl transition-transform duration-300 group-hover:-translate-x-1 max-sm:text-lg">
             ←
           </span>
         </button>
@@ -82,10 +81,9 @@ export default function HomeControl() {
           onClick={nextPage}
           disabled={isAnimating}
           aria-label="Next hero"
-          className=" group flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:border-white/50 hover:bg-white hover:text-black active:scale-95 disabled:pointer-events-none
-          "
+          className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-amber-700/40 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:border-white/50 hover:bg-white hover:text-black active:scale-95 disabled:pointer-events-none max-sm:h-10 max-sm:w-10"
         >
-          <span className="text-xl transition-transform duration-300 group-hover:translate-x-1">
+          <span className="text-xl transition-transform duration-300 group-hover:translate-x-1 max-sm:text-lg">
             →
           </span>
         </button>

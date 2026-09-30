@@ -193,18 +193,18 @@ export default function NaturalEnergyShowcase() {
               {/* RIGHT: tagline */}
 
               <div
-                className={`absolute top-130 right-4 tracking-wider order-3 -rotate-15 transition-all duration-700 md:pl-4 ${
+                className={`absolute top-130 right-4 tracking-wider order-3 -rotate-15 transition-all duration-700 md:pl-4 -mt-15 ${
                   active ? "translate-x-0" : "translate-x-16"
                 }`}
               >
                 <p
-                  className={`${brushFont.className} -skew-x-6 text-5xl uppercase leading-none text-white md:text-[74px] mb-5`}
+                  className={` -skew-x-6 text-5xl uppercase leading-none text-white md:text-[74px] mb-5 font-raleway font-semibold`}
                 >
                   {slide.punchline_first}
                 </p>
 
                 <p
-                  className={`${brushFont.className} relative -skew-x-4 text-[75px] uppercase leading-none text-red-600`}
+                  className={`font-bingo-italic relative -skew-x-4 text-[75px] uppercase leading-none text-red-600 font-bold tracking-wider`}
                 >
                   {slide.punchline_second}
 

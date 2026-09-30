@@ -34,9 +34,9 @@ const Navbar = () => {
             }
           `}
         >
-          <div className="flex flex-col md:flex-row gap-6 md:gap-24 text-white font-bold">
+          <div className="scroll-smooth flex flex-col md:flex-row gap-6 md:gap-24 text-white font-bold">
             <a
-              href="#product"
+              href="#nature-power"
               className="transition-all duration-300 hover:text-black hover:-translate-y-0.5"
             >
               Product
@@ -68,7 +68,6 @@ const Navbar = () => {
         >
           <Menu />
         </button>
-
       </div>
     </nav>
   )
