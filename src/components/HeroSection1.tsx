@@ -131,7 +131,7 @@ const HeroSection1 = () => {
       </div>
 
       <div className="absolute inset-x-0 bottom-0 z-30 px-3 pb-4 sm:px-6 sm:pb-8 md:px-12">
-        <div className="mx-auto grid w-full max-w-4xl grid-cols-3 gap-1 rounded-4xl bg-[#010f2c] px-2 py-2 sm:gap-4 sm:px-4 md:w-[60%]">
+        <div className="mx-auto grid w-full max-w-4xl grid-cols-3 gap-1 rounded-4xl bg-[#010f2c] px-2 py-2 sm:gap-4 sm:px-6 md:w-[60%">
           {stats.map((stat, i) => (
             <StatItem key={stat.number} {...stat} divider={i !== 0} />
           ))}

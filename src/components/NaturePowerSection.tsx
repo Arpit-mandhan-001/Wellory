@@ -159,6 +159,13 @@ export const NaturePowerSection: React.FC = () => {
       id="nature-power"
       className="relative w-full bg-black text-white overflow-hidden select-none"
     >
+
+        <img
+    src="/image/bgLemon.png"
+    alt=""
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+
       {/* Subtle Background Ambience */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] max-w-[90vw] max-h-[70vh] bg-red-950/20 rounded-full blur-[160px] pointer-events-none -z-10" />
 
