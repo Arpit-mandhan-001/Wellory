@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import { ArrowRight, Droplet } from "lucide-react";
 import { motion } from "motion/react";
-import Image from "next/image";
 import gsap from "gsap";
 import { SplitText } from "./SplitTextProps";
 import CANHero from "./CANHero";
@@ -16,8 +14,8 @@ interface FeatureItem {
   description: string;
 }
 
-// Connector lines. Each path starts at the dot on the dates image and ends next to its text,
-// so the draw-in animation travels from the image toward the text.
+// Connector lines. Coordinates live in a fixed 1152x780 design space (the lg layout).
+// The SVG below uses a matching viewBox, so the lines scale with the frame at every width.
 const CONNECTORS = [
   { id: "f1", d: "M 480,230 L 450,180 L 310,180", dot: { cx: 480, cy: 230 } },
   { id: "f2", d: "M 740,250 L 790,180 L 940,180", dot: { cx: 740, cy: 250 } },
@@ -25,41 +23,48 @@ const CONNECTORS = [
   { id: "f4", d: "M 740,630 L 790,720 L 940,720", dot: { cx: 740, cy: 630 } },
 ];
 
+// Shared responsive text classes
+const BADGE =
+  "opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 py-0.5 text-[14px] min-[480px]:text-[16px] lg:text-[18px] font-medium text-zinc-800 uppercase";
+const TITLE =
+  "text-[16px] min-[400px]:text-lg sm:text-xl lg:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase leading-tight";
+const DESC =
+  "text-zinc-700 font-raleway font-bold text-[12px] min-[400px]:text-[13px] sm:text-[14px] lg:text-[16px] leading-relaxed uppercase";
+
 export const NaturePowerSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
- const features: FeatureItem[] = [
-  {
-    id: "f1",
-    badge: "001",
-    title: "ENERGY THAT DOES MORE",
-    description:
-      "ENARJ COLA ENERGY DRINK BLENDS THE CLASSIC TASTE OF COLA WITH THE NATURAL GOODNESS OF MEDJOOL DATES, CREATING A REFRESHING ENERGY DRINK FOR AN ACTIVE LIFESTYLE",
-  },
-  {
-    id: "f2",
-    badge: "002",
-    title: "SUPPORTS FAT METABOLISM",
-    description:
-      "CRAFTED WITH DATE-BASED INGREDIENTS, ENARJ IS DESIGNED TO SUPPORT METABOLIC ACTIVITY AND FAT METABOLISM WHILE HELPING YOU STAY ENERGIZED AND ACTIVE.",
-  },
-  {
-    id: "f3",
-    badge: "003",
-    title: "TESTOSTERONE SUPPORT",
-    description:
-      "ENARJ COMBINES THE NATURAL GOODNESS OF DATES WITH A FUNCTIONAL ENERGY FORMULA DESIGNED TO SUPPORT HEALTHY TESTOSTERONE LEVELS, ENERGY, AND DAILY PERFORMANCE.",
-  },
-  {
-    id: "f4",
-    badge: "004",
-    title: "ENHANCED FOCUS AND ALERTNESS",
-    description:
-      "BEYOND ITS DELIGHTFUL TASTE, ENARJ COLA ENERGY DRINK IS FORMULATED WITH ESSENTIAL B VITAMINS, INCLUDING B3, B6, AND B12, TO SUPPORT MENTAL ALERTNESS AND DAILY FOCUS.",
-  },
-];
-
+  const features: FeatureItem[] = [
+    {
+      id: "f1",
+      badge: "001",
+      title: "ENERGY THAT DOES MORE",
+      description:
+        "ENARJ COLA ENERGY DRINK BLENDS THE CLASSIC TASTE OF COLA WITH THE NATURAL GOODNESS OF MEDJOOL DATES, CREATING A REFRESHING ENERGY DRINK FOR AN ACTIVE LIFESTYLE",
+    },
+    {
+      id: "f2",
+      badge: "002",
+      title: "SUPPORTS FAT METABOLISM",
+      description:
+        "CRAFTED WITH DATE-BASED INGREDIENTS, ENARJ IS DESIGNED TO SUPPORT METABOLIC ACTIVITY AND FAT METABOLISM WHILE HELPING YOU STAY ENERGIZED AND ACTIVE.",
+    },
+    {
+      id: "f3",
+      badge: "003",
+      title: "TESTOSTERONE SUPPORT",
+      description:
+        "ENARJ COMBINES THE NATURAL GOODNESS OF DATES WITH A FUNCTIONAL ENERGY FORMULA DESIGNED TO SUPPORT HEALTHY TESTOSTERONE LEVELS, ENERGY, AND DAILY PERFORMANCE.",
+    },
+    {
+      id: "f4",
+      badge: "004",
+      title: "ENHANCED FOCUS AND ALERTNESS",
+      description:
+        "BEYOND ITS DELIGHTFUL TASTE, ENARJ COLA ENERGY DRINK IS FORMULATED WITH ESSENTIAL B VITAMINS, INCLUDING B3, B6, AND B12, TO SUPPORT MENTAL ALERTNESS AND DAILY FOCUS.",
+    },
+  ];
 
   // Scroll-in intro (plays once): dates rise from the bottom -> then for each callout in turn:
   // dot, line drawing from the image toward the text, badge, then title + description letter by letter
@@ -68,7 +73,6 @@ export const NaturePowerSection: React.FC = () => {
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      // Prepare the line-reveal masks (stroke-dash trick, so the visible line can stay dashed)
       section
         .querySelectorAll<SVGPathElement>(".np-line-mask")
         .forEach((path) => {
@@ -139,7 +143,7 @@ export const NaturePowerSection: React.FC = () => {
             observer.disconnect();
           }
         },
-        { threshold: 0.25 },
+        { threshold: 0.15 },
       );
 
       observer.observe(section);
@@ -148,8 +152,7 @@ export const NaturePowerSection: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
-  // Mathematically computed stepped tab SVG path for 1000x680 viewBox
-  // Left raised tab (y=0), Lowered center shelf (y=46), Right stepped-up tab (y=0)
+  // Stepped tab SVG path for 1000x680 viewBox
   const steppedPath =
     "M 0,28 L 0,652 A 28 28 0 0 0 28 680 L 972 680 A 28 28 0 0 0 1000 652 L 1000 28 A 28 28 0 0 0 972 0 L 748 0 C 724 0, 724 46, 700 46 L 248 46 C 224 46, 224 0, 200 0 L 28 0 A 28 28 0 0 0 0 28 Z";
 
@@ -159,18 +162,18 @@ export const NaturePowerSection: React.FC = () => {
       id="nature-power"
       className="relative w-full bg-black text-white overflow-hidden select-none pt-10 pb-10"
     >
-
-        <img
-    src="/image/bgLemon.png"
-    alt=""
-    className="absolute inset-0 w-full h-full object-cover"
-  />
+      <img
+        src="/image/bgLemon.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
       {/* Subtle Background Ambience */}
-      <div className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] max-w-[90vw] max-h-[70vh] bg-red-950/20 rounded-full blur-[160px] pointer-events-none -z-10 mt-10 mb-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] max-w-[90vw] max-h-[70vh] bg-red-950/20 rounded-full blur-[160px] pointer-events-none -z-10 mt-10 mb-10" />
 
       <div className="w-full flex flex-col items-center">
         {/* ================= STEPPED FRAME CONTAINER ================= */}
+        {/* Mobile/tablet: height follows content (stacked layout). md+: fixed heights. */}
         <div
           className="
             relative
@@ -179,9 +182,7 @@ export const NaturePowerSection: React.FC = () => {
             md:w-[calc(100%-48px)]
             lg:w-full
             max-w-6xl
-            h-[1120px]
-            min-[480px]:h-[900px]
-            sm:h-[200px]
+            h-auto
             md:h-[750px]
             lg:h-[780px]
             mt-3
@@ -190,7 +191,7 @@ export const NaturePowerSection: React.FC = () => {
             sm:mb-5
           "
         >
-          {/* Stepped Frame SVG Background with sleek border & backdrop */}
+          {/* Stepped Frame SVG Background */}
           <div className="absolute inset-0 w-full h-full pointer-events-none">
             <svg
               className="w-full h-full filter drop-shadow-[0_25px_60px_rgba(0,0,0,0.95)]"
@@ -228,6 +229,7 @@ export const NaturePowerSection: React.FC = () => {
                 fill="url(#steppedCardBg)"
                 stroke="url(#steppedCardBorder)"
                 strokeWidth="1.5"
+                vectorEffect="non-scaling-stroke"
               />
             </svg>
           </div>
@@ -264,7 +266,9 @@ export const NaturePowerSection: React.FC = () => {
                 z-10
                 mr-0
                 md:mr-8
-                translate-y-0
+                translate-y-36
+                min-[480px]:translate-y-40
+                sm:translate-y-44
                 md:translate-y-70
               "
             >
@@ -277,6 +281,7 @@ export const NaturePowerSection: React.FC = () => {
                   sm:w-[400px]
                   md:w-[500px]
                   lg:w-[710px]
+                  max-w-full
                   aspect-square
                   flex
                   items-center
@@ -298,7 +303,7 @@ export const NaturePowerSection: React.FC = () => {
 
                 {/* Back CAN */}
                 <motion.div
-                  className="absolute z-0 scale-[0.72] min-[400px]:scale-[0.8] sm:scale-90 md:scale-100 translate-x-22 md:-translate-x-10"
+                  className="absolute z-0 scale-[0.72] min-[400px]:scale-[0.8] sm:scale-90 md:scale-100 translate-x-0 sm:translate-x-10 md:-translate-x-10"
                   initial={{ rotate: 8, x: 45, y: -10 }}
                   animate={{
                     rotate: [8, 12, 8],
@@ -316,7 +321,7 @@ export const NaturePowerSection: React.FC = () => {
 
                 {/* Front CAN */}
                 <motion.div
-                  className="absolute z-10 scale-[0.72] min-[400px]:scale-[0.8] sm:scale-90 md:scale-100 translate-x-35 md:-translate-x-15"
+                  className="absolute z-10 scale-[0.72] min-[400px]:scale-[0.8] sm:scale-90 md:scale-100 translate-x-0 sm:translate-x-16 md:-translate-x-15"
                   initial={{ rotate: -6, x: -15, y: 15 }}
                   animate={{
                     rotate: [-6, -4, -6],
@@ -334,9 +339,11 @@ export const NaturePowerSection: React.FC = () => {
               </motion.div>
             </div>
 
-            {/* Desktop SVG Connecting Lines */}
+            {/* Desktop SVG Connecting Lines — viewBox scales them with the frame */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none z-15 hidden md:block"
+              viewBox="0 0 1152 780"
+              preserveAspectRatio="none"
               aria-hidden="true"
             >
               <defs>
@@ -347,8 +354,8 @@ export const NaturePowerSection: React.FC = () => {
                     maskUnits="userSpaceOnUse"
                     x="0"
                     y="0"
-                    width="100%"
-                    height="100%"
+                    width="1152"
+                    height="780"
                   >
                     <path
                       d={c.d}
@@ -368,9 +375,8 @@ export const NaturePowerSection: React.FC = () => {
                     fill="none"
                     stroke="rgba(24,24,27,0.55)"
                     strokeWidth="1.25"
-                    strokeDasharray={
-                      hoveredId === c.id ? "none" : "4 3"
-                    }
+                    strokeDasharray={hoveredId === c.id ? "none" : "4 3"}
+                    vectorEffect="non-scaling-stroke"
                     mask={`url(#np-mask-${i})`}
                     className="transition-all duration-300"
                   />
@@ -392,13 +398,13 @@ export const NaturePowerSection: React.FC = () => {
                 relative
                 z-20
                 w-full
-                h-full
+                md:h-full
                 grid
                 grid-cols-1
                 md:grid-cols-2
-                gap-y-10
-                min-[480px]:gap-y-14
-                sm:gap-y-20
+                gap-y-8
+                min-[480px]:gap-y-10
+                sm:gap-y-12
                 md:gap-y-36
                 justify-between
               "
@@ -407,7 +413,9 @@ export const NaturePowerSection: React.FC = () => {
               <div
                 className="
                   w-full
-                  max-w-[270px]
+                  max-w-full
+                  sm:max-w-[340px]
+                  md:max-w-[270px]
                   space-y-2
                   cursor-pointer
                   transition-transform
@@ -417,22 +425,14 @@ export const NaturePowerSection: React.FC = () => {
                 onMouseEnter={() => setHoveredId("f1")}
                 onMouseLeave={() => setHoveredId(null)}
               >
-                <div className="np-badge-0 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 py-0.5 text-[15px] min-[480px]:text-[18px] font-medium text-zinc-800 uppercase">
-                  {features[0].badge}
-                </div>
+                <div className={`np-badge-0 ${BADGE}`}>{features[0].badge}</div>
 
-                <h3 className="text-[15px] min-[400px]:text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase leading-tight">
-                  <SplitText
-                    text={features[0].title}
-                    letterClass="np-l0"
-                  />
+                <h3 className={TITLE}>
+                  <SplitText text={features[0].title} letterClass="np-l0" />
                 </h3>
 
-                <p className="text-zinc-700 font-raleway font-bold text-[10px] min-[400px]:text-[11px] sm:text-[16px] leading-relaxed uppercase">
-                  <SplitText
-                    text={features[0].description}
-                    letterClass="np-l0"
-                  />
+                <p className={DESC}>
+                  <SplitText text={features[0].description} letterClass="np-l0" />
                 </p>
               </div>
 
@@ -440,7 +440,9 @@ export const NaturePowerSection: React.FC = () => {
               <div
                 className="
                   w-full
-                  max-w-[280px]
+                  max-w-full
+                  sm:max-w-[340px]
+                  md:max-w-[280px]
                   -space-y-2
                   md:text-left
                   md:ml-auto
@@ -452,30 +454,30 @@ export const NaturePowerSection: React.FC = () => {
                 onMouseEnter={() => setHoveredId("f2")}
                 onMouseLeave={() => setHoveredId(null)}
               >
-                <div className="np-badge-1 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 mb-2 py-0.5 text-[15px] min-[480px]:text-[18px] font-medium text-zinc-800 uppercase">
-                  {features[1].badge}
-                </div>
+                <div className={`np-badge-1 mb-2 ${BADGE}`}>{features[1].badge}</div>
 
-                <h3 className="text-[15px] min-[400px]:text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase leading-tight mb-2">
-                  <SplitText
-                    text={features[1].title}
-                    letterClass="np-l1"
-                  />
+                <h3 className={`${TITLE} mb-2`}>
+                  <SplitText text={features[1].title} letterClass="np-l1" />
                 </h3>
 
-                <p className="text-zinc-700 font-raleway font-bold text-[10px] min-[400px]:text-[11px] sm:text-[16px] leading-relaxed uppercase">
-                  <SplitText
-                    text={features[1].description}
-                    letterClass="np-l1"
-                  />
+                <p className={DESC}>
+                  <SplitText text={features[1].description} letterClass="np-l1" />
                 </p>
               </div>
+
+              {/* Mobile/tablet only: reserves room for the cans between the callouts */}
+              <div
+                aria-hidden="true"
+                className="md:hidden h-[300px] min-[480px]:h-[340px] sm:h-[400px]"
+              />
 
               {/* 003: Bottom Left Callout */}
               <div
                 className="
                   w-full
-                  max-w-[270px]
+                  max-w-full
+                  sm:max-w-[340px]
+                  md:max-w-[270px]
                   space-y-2
                   cursor-pointer
                   transition-transform
@@ -486,22 +488,14 @@ export const NaturePowerSection: React.FC = () => {
                 onMouseEnter={() => setHoveredId("f3")}
                 onMouseLeave={() => setHoveredId(null)}
               >
-                <div className="np-badge-2 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 py-0.5 text-[15px] min-[480px]:text-[18px] font-medium text-zinc-800 uppercase">
-                  {features[2].badge}
-                </div>
+                <div className={`np-badge-2 ${BADGE}`}>{features[2].badge}</div>
 
-                <h3 className="text-[15px] min-[400px]:text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase leading-tight">
-                  <SplitText
-                    text={features[2].title}
-                    letterClass="np-l2"
-                  />
+                <h3 className={TITLE}>
+                  <SplitText text={features[2].title} letterClass="np-l2" />
                 </h3>
 
-                <p className="font-raleway font-bold text-zinc-700 text-[10px] min-[400px]:text-[11px] sm:text-[16px] leading-relaxed uppercase">
-                  <SplitText
-                    text={features[2].description}
-                    letterClass="np-l2"
-                  />
+                <p className={DESC}>
+                  <SplitText text={features[2].description} letterClass="np-l2" />
                 </p>
               </div>
 
@@ -509,7 +503,9 @@ export const NaturePowerSection: React.FC = () => {
               <div
                 className="
                   w-full
-                  max-w-[280px]
+                  max-w-full
+                  sm:max-w-[340px]
+                  md:max-w-[280px]
                   space-y-2
                   md:text-left
                   md:ml-auto
@@ -522,22 +518,14 @@ export const NaturePowerSection: React.FC = () => {
                 onMouseEnter={() => setHoveredId("f4")}
                 onMouseLeave={() => setHoveredId(null)}
               >
-                <div className="np-badge-3 opacity-0 inline-flex items-center justify-center border border-zinc-900/30 rounded-full px-3 py-0.5 text-[15px] min-[480px]:text-[18px] font-medium text-zinc-800 uppercase">
-                  {features[3].badge}
-                </div>
+                <div className={`np-badge-3 ${BADGE}`}>{features[3].badge}</div>
 
-                <h3 className="text-[15px] min-[400px]:text-base sm:text-2xl font-medium font-display tracking-wide text-zinc-900 uppercase leading-tight">
-                  <SplitText
-                    text={features[3].title}
-                    letterClass="np-l3"
-                  />
+                <h3 className={TITLE}>
+                  <SplitText text={features[3].title} letterClass="np-l3" />
                 </h3>
 
-                <p className="text-zinc-700 font-raleway font-bold text-[10px] min-[400px]:text-[11px] sm:text-[16px] leading-relaxed uppercase">
-                  <SplitText
-                    text={features[3].description}
-                    letterClass="np-l3"
-                  />
+                <p className={DESC}>
+                  <SplitText text={features[3].description} letterClass="np-l3" />
                 </p>
               </div>
             </div>

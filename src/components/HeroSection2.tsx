@@ -83,10 +83,6 @@ const HeroSection2 = () => {
     <section
       className={`relative h-screen w-full overflow-hidden bg-black text-white ${inter.className}`}
     >
-      <div className="absolute inset-x-0 top-0 z-50">
-        <Navbar />
-      </div>
-
       <img
         src="/image/image2bike.png"
         className="block h-screen w-full object-cover"
