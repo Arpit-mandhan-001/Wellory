@@ -100,7 +100,7 @@ const Navbar = () => {
           {/* Links */}
           <div className="flex flex-col">
             <a
-              href="#nature-power"
+              href="/#nature-power"
               onClick={closeMenu}
               className="group flex items-center justify-between rounded-xl px-4 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-white/10 active:bg-white/15"
             >
@@ -111,7 +111,7 @@ const Navbar = () => {
             </a>
 
             <a
-              href="#comingsoon"
+              href="/about-us"
               onClick={closeMenu}
               className="group flex items-center justify-between rounded-xl px-4 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-white/10 active:bg-white/15"
             >
