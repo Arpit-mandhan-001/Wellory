@@ -486,7 +486,7 @@ export default function AboutPage() {
             className="max-w-4xl text-5xl uppercase leading-[0.95] md:text-7xl"
             style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
           >
-            From the field to the glass.
+            The journey behind Wellory.
           </h2>
 
           <ol className="mt-16 grid gap-6 lg:grid-cols-3">

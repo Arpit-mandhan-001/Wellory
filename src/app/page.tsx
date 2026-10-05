@@ -20,7 +20,7 @@ export default function Home() {
 
       <NaturePowerSection />
       
-      <BackGroundVideo />
+      {/* <BackGroundVideo /> */}
       <VideoRow />
 
       <NaturalEnergyShowcase />

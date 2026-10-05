@@ -15,7 +15,7 @@ const BackGroundVideo = () => {
       </video>
 
       {/* Optional dark overlay */}
-      <div className="absolute inset-0 bg-black/30" />
+      {/* <div className="absolute inset-0 bg-black/30" /> */}
 
       {/* Content */}
       {/* <div className="w-fit translate-x-3 rounded-full px-5 py-2 md:px-6 md:py-3">
