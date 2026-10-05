@@ -9,31 +9,43 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav className="relative z-50 flex items-center justify-between bg-[#350303]/30 px-5 py-3 md:px-7 md:py-4">
+    <nav className="relative z-50 flex items-center justify-between
+    px-5 py-3 md:px-7 md:py-4
+    bg-gradient-to-b
+    from-black/55
+    via-black/35
+    to-transparent
+    backdrop-blur-[1px]
+    ">
       {/* Logo */}
       <div className="ml-1 px-2 py-1 md:ml-4">
+        <a
+            href="/"
+          >
+
         <img
           src="/image/Logo2.png"
           alt="WELLORY"
           className="h-11 w-auto object-contain md:h-12 rounded-xs"
         />
+          </a>
       </div>
 
       {/* Desktop Navigation */}
-      <div className="hidden items-center md:flex">
+      <div className="hidden items-center md:flex text-[18px] ">
         <div className="flex items-center gap-16 text-white font-bold lg:gap-24">
           <a
-            href="#nature-power"
+            href="/#nature-power"
             className="transition-all duration-300 hover:-translate-y-0.5 hover:text-[#f5d6b3]"
           >
             Product
           </a>
 
           <a
-            href="#story"
+            href="/about-us"
             className="transition-all duration-300 hover:-translate-y-0.5 hover:text-[#f5d6b3]"
           >
-            Story
+            About Us
           </a>
 
           <a
@@ -99,11 +111,11 @@ const Navbar = () => {
             </a>
 
             <a
-              href="#story"
+              href="#comingsoon"
               onClick={closeMenu}
               className="group flex items-center justify-between rounded-xl px-4 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-white/10 active:bg-white/15"
             >
-              <span>Story</span>
+              <span>About Us</span>
               <span className="text-white/30 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white">
                 →
               </span>

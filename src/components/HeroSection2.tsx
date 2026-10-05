@@ -84,51 +84,12 @@ const HeroSection2 = () => {
       className={`relative h-screen w-full overflow-hidden bg-black text-white ${inter.className}`}
     >
       <img
-        src="/image/image2bike.png"
+        src="/image/banner2.jpeg"
         className="block h-screen w-full object-cover"
         alt=""
       />
 
-      <div className="absolute inset-y-0 left-0 z-20 flex w-full max-w-xl translate-y-5 flex-col justify-center gap-6 px-5 sm:px-6 md:px-12 lg:max-w-2xl ">
-        <h1 className="relative -top-35 md:top-0 leading-[0.95]">
-          <span
-            className={`${anton.className} block text-4xl italic uppercase text-white sm:text-5xl md:text-6xl lg:text-7xl`}
-          >
-            Larger than
-          </span>
-          <span
-            className={`${anton.className} block text-4xl italic uppercase text-white sm:text-5xl md:text-6xl lg:text-7xl`}
-          >
-            Life
-          </span>
-          <span
-            className={`${marker.className} mt-2 mb-10 block -rotate-2 text-3xl uppercase tracking-wide text-[#fdf905] sm:text-xl md:text-5xl lg:text-7xl`}
-          >
-            <span className="whitespace-nowrap md:hidden">Chase the</span>
-            <span className="hidden md:inline">
-              Chase
-              <br />
-              the
-            </span>
-            <br />
-            Rush.
-          </span>
-        </h1>
-
-        {/* <p className="max-w-sm text-black font-poppins font-bold text-base leading-relaxed  sm:text-lg">
-          Late nights. Early mornings.
-          <br />
-          Full throttle.
-        </p> */}
-
-        <Link
-          href="/enarj"
-          className="group inline-flex w-fit items-center gap-3 rounded-md bg-[#D7FF3D] px-6 py-3.5 text-[10px] sm:text-xs md:text-xl font-bold uppercase tracking-wide text-black transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:shadow-[0_20px_45px_-15px_#D7FF3D] active:translate-y-0"
-        >
-          Explore Enarj
-          <ArrowRight className="h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" />
-        </Link>
-      </div>
+      
 
       <div className="absolute inset-x-0 bottom-0 z-30 px-3 pb-4 sm:px-6 sm:pb-8 md:px-12">
         <div className="mx-auto grid w-full max-w-4xl grid-cols-3 gap-1 rounded-4xl bg-[#010f2c] px-2 py-2 sm:gap-4 sm:px-6 md:w-[60%] ">

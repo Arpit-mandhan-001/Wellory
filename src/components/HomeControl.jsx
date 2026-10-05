@@ -63,7 +63,7 @@ export default function HomeControl() {
       setIsAnimating(true);
 
       setTimeout(() => {
-        setCurrentPage((prev) => (prev === 0 ? 0 : 1));
+        setCurrentPage((prev) => (prev === 0 ? 1 : 0));
         setIsAnimating(false);
       }, 1000);
     }, 3000);

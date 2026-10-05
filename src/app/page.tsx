@@ -7,6 +7,8 @@ import NaturalEnergyShowcase from "@/components/NaturalEnergyShowcase";
 import { WhatsInsideSection } from "@/components/WhatsInsideSection";
 import { Footer } from "@/components/Footer";
 import BackGroundVideo from "@/components/BackGroundVideo";
+import ComingSoon from "@/components/ComingSoon"
+import VideoRow from "@/components/VideoRow"
 
 export default function Home() {
 
@@ -19,10 +21,13 @@ export default function Home() {
       <NaturePowerSection />
       
       <BackGroundVideo />
+      <VideoRow />
 
       <NaturalEnergyShowcase />
 
+      <ComingSoon />
       <WhatsInsideSection />
+
 
       <Footer />
     </>
