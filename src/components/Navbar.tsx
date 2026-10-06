@@ -8,17 +8,15 @@ const Navbar = () => {
 
   const closeMenu = () => setIsOpen(false);
 
+//   Heading, description, paragraph 
   return (
     <nav className="relative z-50 flex items-center justify-between
     px-5 py-3 md:px-7 md:py-4
-    bg-gradient-to-b
-    from-black/55
-    via-black/35
-    to-transparent
+    bg-linear-to-l from-black/35 to-black/15 via-black/10
     backdrop-blur-[1px]
     ">
       {/* Logo */}
-      <div className="ml-1 px-2 py-1 md:ml-4">
+      <div className="ml-1 px-2 py-1 md:ml-4 ">
         <a
             href="/"
           >
@@ -26,14 +24,14 @@ const Navbar = () => {
         <img
           src="/image/Logo2.png"
           alt="WELLORY"
-          className="h-11 w-auto object-contain md:h-12 rounded-xs"
+          className="h-11 w-auto object-contain md:h-12 rounded-full"
         />
           </a>
       </div>
 
       {/* Desktop Navigation */}
-      <div className="hidden items-center md:flex text-[18px] ">
-        <div className="flex items-center gap-16 text-white font-bold lg:gap-24">
+      <div className="hidden items-center md:flex text-[18px]">
+        <div className="flex items-center gap-16 text-white font-thin lg:gap-24">
           <a
             href="/#nature-power"
             className="transition-all duration-300 hover:-translate-y-0.5 hover:text-[#f5d6b3]"

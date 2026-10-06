@@ -52,7 +52,7 @@ const CANHero1 = () => {
       </div>
 
       {/* Rock pedestal */}
-      <div
+      {/* <div
         aria-hidden="true"
         className="
           -mt-2
@@ -67,7 +67,7 @@ const CANHero1 = () => {
           min-[480px]:h-7
           sm:h-10
         "
-      />
+      /> */}
     </div>
   );
 };

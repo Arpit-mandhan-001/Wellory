@@ -409,6 +409,53 @@ export default function AboutPage() {
          </div>
        </section>
 
+      <section className="bg-[#111111] py-24 text-white lg:py-32 -mt-5">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 -mt-10">
+          <h2
+            className="max-w-4xl text-5xl uppercase leading-[0.95] md:text-7xl"
+            style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
+          >
+            The journey behind Wellory.
+          </h2>
+
+          <ol className="mt-16 grid gap-6 lg:grid-cols-3">
+            {JOURNEY.map((s) => (
+              <li
+                key={s.n}
+                className="group overflow-hidden rounded-[2rem] bg-[#1A1A1A]"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={s.img}
+                    alt={s.alt}
+                    fill
+                    sizes="(min-width:1024px) 30vw, 100vw"
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                  />
+
+                  <span
+                    className="absolute left-4 top-4 rounded-full bg-[#FFE14D] px-4 py-1 text-xl text-black"
+                    style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
+                  >
+                    {s.n}
+                  </span>
+                </div>
+
+                <div className="p-7">
+                  <h3
+                    className="text-3xl uppercase text-[#FFE14D]"
+                    style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
+                  >
+                    {s.title}
+                  </h3>
+
+                  <p className="mt-3 leading-relaxed text-white/80">{s.text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
       {/* FOUNDER STORY */}
       <section
@@ -480,53 +527,6 @@ export default function AboutPage() {
       </section>
 
       {/* JOURNEY */}
-      <section className="bg-[#111111] py-24 text-white lg:py-32 -mt-5">
-        <div className="mx-auto max-w-7xl px-6 md:px-10 -mt-10">
-          <h2
-            className="max-w-4xl text-5xl uppercase leading-[0.95] md:text-7xl"
-            style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
-          >
-            The journey behind Wellory.
-          </h2>
-
-          <ol className="mt-16 grid gap-6 lg:grid-cols-3">
-            {JOURNEY.map((s) => (
-              <li
-                key={s.n}
-                className="group overflow-hidden rounded-[2rem] bg-[#1A1A1A]"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={s.img}
-                    alt={s.alt}
-                    fill
-                    sizes="(min-width:1024px) 30vw, 100vw"
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                  />
-
-                  <span
-                    className="absolute left-4 top-4 rounded-full bg-[#FFE14D] px-4 py-1 text-xl text-black"
-                    style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
-                  >
-                    {s.n}
-                  </span>
-                </div>
-
-                <div className="p-7">
-                  <h3
-                    className="text-3xl uppercase text-[#FFE14D]"
-                    style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
-                  >
-                    {s.title}
-                  </h3>
-
-                  <p className="mt-3 leading-relaxed text-white/80">{s.text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
 
       {/* FLAVOURS */}
       <section className="mx-auto max-w-7xl px-6 py-24 md:px-10 lg:py-32">

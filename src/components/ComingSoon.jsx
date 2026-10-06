@@ -22,8 +22,8 @@ export default function ComingSoon() {
 
             </h1>
 
-            <p className="mt-8 text-xl font-semibold tracking-tight text-[#ececec] sm:mt-10 sm:text-2xl lg:text-[1.75rem]">
-              <span className={`${spaceGrotesk.className} pr-2`}>ENARJ</span>
+            <p className="mt-8 text-xl font-semibold tracking-tight text-[#ececec] sm:mt-10 sm:text-2xl lg:text-[1.75rem] font-raleway">
+              <span className={` pr-2`}>WELLORY</span>
               is just getting started.
             </p>
 
@@ -38,10 +38,6 @@ export default function ComingSoon() {
                 className={`text-lg font-semibold sm:text-xl md:text-[1.4rem] ${LIME}`}
               >
                 More products. More ways to feel good.
-              </p>
-
-              <p className="mt-1 text-base text-[#ececec] sm:text-lg md:text-xl">
-                Coming soon.
               </p>
             </div>
           </div>

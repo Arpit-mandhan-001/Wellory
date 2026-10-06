@@ -34,12 +34,6 @@ const FAQ_ITEMS: FAQItem[] = [
       "ENARJ CONTAINS 80MG OF CLEAN, NATURAL CAFFEINE DERIVED EXCLUSIVELY FROM ORGANIC GREEN TEA EXTRACT PER 250ML CAN. THIS DELIVERS BALANCED, SUSTAINED FOCUS AND SHARP ENERGY WITHOUT ANY JITTERS, PALPITATIONS, OR ABRUPT AFTERNOON CRASHES TYPICAL OF SYNTHETIC CAFFEINE SOURCES.",
   },
   {
-    id: "alcohol",
-    question: "CAN BE CONSUMED WITH ALCOHOL?",
-    answer:
-      "WE DO NOT RECOMMEND MIXING ENERGY DRINKS WITH ALCOHOLIC BEVERAGES. CAFFEINE CAN MASK THE SENSORY DEPRESSIVE EFFECTS OF ALCOHOL, LEADING TO MISJUDGED CONSUMPTION LEVELS. ENARJ IS FORMULATED AS A PURE WELLNESS AND FOCUS DRINK TO RECHARGE YOUR MIND AND BODY NATURALLY.",
-  },
-  {
     id: "sweetness",
     question: "WHERE DOES THE SWEETNESS COME FROM?",
     answer:
@@ -165,7 +159,7 @@ export const WhatsInsideSection: React.FC = () => {
               className="overflow-hidden py-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-display tracking-tight uppercase"
               style={{ color: ACCENT_COLOR }}
             >
-              <SplitText text="THE ENARJ." letterClass="wi-brand-letter" />
+              <SplitText text="WELLORY" letterClass="wi-brand-letter" />
             </h2>
           </div>
 

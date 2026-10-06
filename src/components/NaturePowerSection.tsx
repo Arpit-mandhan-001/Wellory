@@ -94,7 +94,7 @@ export const NaturePowerSection: React.FC = () => {
       );
 
       CONNECTORS.forEach((_, i) => {
-        const t = 1.2 + i * 1.7;
+        const t = 0.2 + i * 1.7;
 
         tl.fromTo(
           `.np-dot-${i}`,
@@ -128,7 +128,7 @@ export const NaturePowerSection: React.FC = () => {
             {
               y: 0,
               opacity: 1,
-              stagger: 0.012,
+              stagger: 0.003,
               duration: 0.35,
               ease: "power2.out",
             },
@@ -137,14 +137,20 @@ export const NaturePowerSection: React.FC = () => {
       });
 
       const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            tl.play();
-            observer.disconnect();
-          }
-        },
-        { threshold: 0.15 },
-      );
+  ([entry]) => {
+    if (entry.isIntersecting) {
+      console.log("Nature Power animation triggered");
+      tl.play();
+      observer.disconnect();
+    }
+  },
+  {
+    threshold: 0.05,
+  },
+);
+
+observer.observe(section);
+
 
       observer.observe(section);
     }, sectionRef);
