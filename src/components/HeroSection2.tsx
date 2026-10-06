@@ -84,7 +84,7 @@ const HeroSection2 = () => {
       className={`relative h-screen w-full overflow-hidden bg-black text-white ${inter.className}`}
     >
       <img
-        src="/image/banner2.jpeg"
+        src="/image/banner2.webp"
         className="block h-screen w-full object-cover"
         alt=""
       />

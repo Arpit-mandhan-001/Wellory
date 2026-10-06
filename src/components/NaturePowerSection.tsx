@@ -803,7 +803,7 @@ export const NaturePowerSection: React.FC = () => {
       ====================================================== */}
 
       <img
-        src="/image/bgLemon.png"
+        src="/image/bgLemon.webp"
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
       />

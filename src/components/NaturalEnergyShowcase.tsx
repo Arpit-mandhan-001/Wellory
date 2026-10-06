@@ -44,14 +44,14 @@ const NUTRITION_ORIGINAL2: NutritionRow[] = [
 const SLIDES: Slide[] = [
   {
     flavor: "Original Flavor",
-    canImage: "/image/coffee.png",
+    canImage: "/image/coffee.webp",
     nutrition: NUTRITION_ORIGINAL,
     punchline_first: "Fuel Your",
     punchline_second: "Wilder",
   },
   {
     flavor: "Lemon Flavor", // rename
-    canImage: "/image/lemon.png",
+    canImage: "/image/lemon.webp",
     nutrition: NUTRITION_ORIGINAL2, // replace with this flavor's values
     punchline_first: "Break the",
     punchline_second: "Boring",

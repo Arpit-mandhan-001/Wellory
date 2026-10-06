@@ -86,15 +86,15 @@ const HeroSection1 = () => {
     >
       {/* Mobile */}
       <img
-        src="/image/banner1mob.png"
+        src="/image/banner1mob.webp"
         className="block h-[110%] w-full object-contain scale-150 md:hidden"
         alt=""
       />
 
       {/* Desktop */}
       <img
-        src="/image/banner1.png"
-        className="hidden h-[100%] w-full object-contain scale-120 md:block"
+        src="/image/banner1.webp"
+        className="hidden h-full w-full object-contain scale-120 md:block"
         alt=""
       />
 

@@ -39,7 +39,7 @@ const CANHero1 = () => {
       {/* Transparent can image */}
       <div className="relative w-full">
         <img
-          src="/image/lemon.png"
+          src="/image/lemon.webp"
           alt="Dates Cola"
           className="
             relative
