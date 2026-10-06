@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <Link href="#" aria-label="ENARJ home" className="block shrink-0">
             <Image
-              src={"/image/Logo2.png"}
+              src={"/image/glossylogo.png"}
               alt="ENARJ"
               width={"100"}
               height={"100"}

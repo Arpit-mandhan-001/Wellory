@@ -130,12 +130,12 @@ function SlideView({
         <img
           src={slide.canImage}
           alt={`Enarj ${slide.flavor} can`}
-          className={`h-[34svh] max-h-[360px] w-auto rotate-[14deg] object-contain drop-shadow-[0_30px_60px_rgba(255,40,20,0.35)] transition-all duration-700 motion-reduce:transition-none md:h-[44svh] md:max-h-none xl:col-start-2 xl:row-start-1 xl:h-[68svh] ${
+          className={`h-[34svh] max-h-[360px] w-auto rotate-[14deg] object-contain drop-shadow-[0_30px_60px_rgba(255,40,20,0.35)] transition-all duration-700 motion-reduce:transition-none md:h-[44svh] md:max-h-none xl:col-start-2 xl:row-start-1 xl:h-[68svh] translate-x-0 lg:translate-x-15 ${
             active ? "translate-y-0 scale-100" : "translate-y-8 scale-90"
           }`}
         />
 
-        <div
+        {/* <div
           className={`mb-6 mt-10 w-fit -rotate-3 tracking-wider transition-all duration-700 motion-reduce:transition-none md:-rotate-6 xl:col-start-3 xl:row-start-1 xl:mb-0 xl:mt-0 xl:-rotate-[12deg] xl:justify-self-end xl:self-end xl:pb-[8svh] ${
             active ? "translate-x-0" : "translate-x-8"
           }`}
@@ -147,7 +147,7 @@ function SlideView({
             {slide.punchline_second}
             <span className="absolute -bottom-3 left-0 h-1 w-[62%] -rotate-2 rounded-full bg-red-600 md:-bottom-4 md:h-[6px] xl:-bottom-6" />
           </p>
-        </div>
+        </div> */}
       </div>
 
       {/* INFO: flavor + nutrition */}
@@ -220,7 +220,10 @@ export default function NaturalEnergyShowcase() {
     const dx = t.clientX - start.x;
     const dy = t.clientY - start.y;
     // Horizontal, deliberate swipes only, so vertical scrolling never triggers it.
-    if (Math.abs(dx) > SWIPE_THRESHOLD_PX && Math.abs(dx) > Math.abs(dy) * 1.5) {
+    if (
+      Math.abs(dx) > SWIPE_THRESHOLD_PX &&
+      Math.abs(dx) > Math.abs(dy) * 1.5
+    ) {
       if (dx < 0) next();
       else prev();
     }
@@ -232,12 +235,32 @@ export default function NaturalEnergyShowcase() {
       onTouchEnd={onTouchEnd}
       className={`${bodyFont.className} relative isolate min-h-svh w-full touch-pan-y overflow-hidden bg-black text-white`}
     >
-      {/* Background video + overlays */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(220,20,20,0.25),transparent_60%)]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/40" />
-      </div>
+      {/* Responsive background image */}
+<div
+  aria-hidden
+  className="pointer-events-none absolute inset-0"
+>
+  <picture className="absolute inset-0 block h-full w-full">
+    {/* Mobile */}
+    <source
+      media="(max-width: 767px)"
+      srcSet="/image/bgStats.jpeg"
+    />
+
+    {/* Desktop / larger screens */}
+    <source
+      media="(min-width: 768px)"
+      srcSet="/image/bgStats.jpeg"
+    />
+
+    <img
+      src="/image/bgStats.jpeg"
+      alt=""
+      className="h-full w-full object-cover"
+    />
+  </picture>
+</div>
+
 
       {/* Content: normal document flow, so the section grows on small screens */}
       <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-[1680px] flex-col px-5 pb-4 pt-5 sm:px-8 md:pt-8 xl:px-[4.5%] xl:pt-12">

@@ -84,24 +84,19 @@ const HeroSection1 = () => {
     <section
       className={`relative h-screen w-full overflow-visible text-white ${inter.className}`}
     >
-
       {/* Mobile */}
-<img
-  src="/image/banner1mob.png"
-  className="block h-[100%] w-full object-contain scale-120 md:hidden"
-  alt=""
-/>
+      <img
+        src="/image/banner1mob.png"
+        className="block h-[110%] w-full object-contain scale-150 md:hidden"
+        alt=""
+      />
 
-{/* Desktop */}
-<img
-  src="/image/banner1.png"
-  className="hidden h-[100%] w-full object-contain scale-120 md:block"
-  alt=""
-/>
-
-
-
-      
+      {/* Desktop */}
+      <img
+        src="/image/banner1.png"
+        className="hidden h-[100%] w-full object-contain scale-120 md:block"
+        alt=""
+      />
 
       {/* <div className="absolute inset-x-0 bottom-0 z-30 px-3 pb-4 sm:px-6 sm:pb-8 md:px-12">
         <div className="mx-auto grid w-full max-w-4xl grid-cols-3 gap-1 rounded-4xl bg-[#010f2c] px-2 py-2 sm:gap-4 sm:px-8 md:w-[60%]">
@@ -115,6 +110,3 @@ const HeroSection1 = () => {
 };
 
 export default HeroSection1;
-
-
-
