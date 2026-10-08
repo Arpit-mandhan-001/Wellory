@@ -192,7 +192,6 @@
 //             />
 //           </div>
 
-          
 //         </div>
 //       </section>
 
@@ -306,20 +305,23 @@
 //   );
 // }
 
-
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import { Anton, Manrope } from "next/font/google";
 
-const display = Anton({ weight: "400", subsets: ["latin"], variable: "--font-display" });
+const display = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-display",
+});
 const body = Manrope({ subsets: ["latin"], variable: "--font-body" });
 
 const IMG = {
   heroGym: "/image/gym.png",
   heroParty: "/image/runner.png",
   cricketer: "/image/Trophy.webp",
-  runner1 : "/image/runner1122.jpg",
+  runner1: "/image/runner1122.jpg",
   runner: "/image/runner.png",
   restaurant: "/image/chutneez.jpeg",
   drinking: "/image/coffee.png",
@@ -335,27 +337,35 @@ const IMG = {
    dark    #111111
 */
 
-const MARQUEE = ["Sport", "Fitness", "Hospitality", "Date-based energy", "Coffee", "Lemon", "Keep moving"];
+const MARQUEE = [
+  "Sport",
+  "Fitness",
+  "Hospitality",
+  "Date-based energy",
+  "Coffee",
+  "Lemon",
+  "Keep moving",
+];
 
 const JOURNEY = [
   {
     n: "01",
     title: "On the field",
-    text: "A passionate athlete and former Ranji Trophy player, our founder grew up believing that an active lifestyle is the best kind of life.",
+    text: "A passionate athlete and former Ranji Trophy player (India's premier first-class cricket championship), our founder has always believed in the power of an active life.",
     img: IMG.runner1,
     alt: "Wellory founder, former Ranji Trophy cricketer",
   },
   {
     n: "02",
     title: "In the kitchen",
-    text: "Over 15 years in hospitality, including Drinks at Stake, fine-dine restaurants and Chutneez across Delhi. Always around great food, drinks and people.",
+    text: "Over 15 years in hospitality in Delhi, India, including Drinks at Stake, fine dining restaurants and Chutneez. His career has always revolved around great food, drinks, and people",
     img: IMG.restaurant,
     alt: "Chutneez restaurant, Delhi",
   },
   {
     n: "03",
     title: "In your hand",
-    text: "Wellory is the next chapter: date-based energy drinks in refreshing Coffee and Lemon flavours, made for people who keep moving.",
+    text: "Wellory is the next chapter: ENARJ, a date-based energy drink in refreshing Coffee and Lemon flavours, made for people who keep moving.",
     img: IMG.drinking,
     alt: "Wellory Coffee energy drink",
   },
@@ -373,41 +383,43 @@ export default function AboutPage() {
         @media (prefers-reduced-motion: reduce) { .wl-marquee { animation: none; } }
       `}</style>
 
-        <Navbar />
+      <Navbar />
       {/* HERO */}
-     <section className="relative h-[330px] overflow-hidden bg-black sm:h-[380px] md:h-[clamp(400px,37vw,560px)]">
-         {/* Gym / Runner image */}
-         <div className="relative h-full w-full overflow-hidden">
-           <img
-             src="/image/gym.png"
-             alt="Athlete training in the gym"
-             className="h-full w-full object-cover object-center -translate-x-0 md:-translate-x-70"
-           />
-         </div>
+      <section className="relative h-[330px] overflow-hidden bg-black sm:h-[380px] md:h-[clamp(400px,37vw,560px)]">
+        {/* Gym / Runner image */}
+        <div className="relative h-full w-full overflow-hidden">
+          <img
+            src="/image/gym.png"
+            alt="Athlete training in the gym"
+            className="h-full w-full object-cover object-center -translate-x-0 md:-translate-x-70"
+          />
+        </div>
 
-         {/* Party image - desktop only */}
-         <div className="absolute inset-0 hidden md:block md:[clip-path:polygon(60%_0,100%_0,100%_100%,44%_100%)]">
-           <img
-             src="/image/runner.png"
-             alt="Crowd celebrating at a night event"
-             className="h-full w-full object-cover object-center md:translate-x-90"
-           />
+        {/* Party image - desktop only */}
+        <div className="absolute inset-0 hidden md:block md:[clip-path:polygon(60%_0,100%_0,100%_100%,44%_100%)]">
+          <img
+            src="/image/runner.png"
+            alt="Crowd celebrating at a night event"
+            className="h-full w-full object-cover object-center md:translate-x-90"
+          />
 
-           <div className="absolute inset-0 bg-gradient-to-br from-red-900/50 to-purple-900/40 mix-blend-multiply" />
-         </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-red-900/50 to-purple-900/40 mix-blend-multiply" />
+        </div>
 
-         {/* Dark overlay */}
-         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-black/70" />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-black/70" />
 
-         {/* Content */}
-         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 pt-10 text-center">
-           <h1 className="text-5xl md:text-8xl font-black">WELLORY</h1>
-
-           <h1 className="mt-4 text-sm font-medium uppercase tracking-[0.5em] sm:mt-6 sm:text-lg md:text-xl">
-             About&nbsp;Us
-           </h1>
-         </div>
-       </section>
+        {/* Content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 pt-10 text-center">
+          <h1 className="text-5xl md:text-8xl font-black">WELLORY</h1>
+          <h1 className="mt-4 text-sm font-medium uppercase tracking-[0.5em] sm:mt-6 sm:text-lg md:text-xl">
+            About&nbsp;Us
+          </h1>
+          <span className="mt-6 sm:text-[14px] md:text-[20px] font-medium -tracking-tight">
+            Born from sport. Driven by experience. Made for energy.
+          </span>
+        </div>
+      </section>
 
       <section className="bg-[#111111] py-24 text-white lg:py-32 -mt-5">
         <div className="mx-auto max-w-7xl px-6 md:px-10 -mt-10">
@@ -435,7 +447,9 @@ export default function AboutPage() {
 
                   <span
                     className="absolute left-4 top-4 rounded-full bg-[#FFE14D] px-4 py-1 text-xl text-black"
-                    style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
+                    style={{
+                      fontFamily: "var(--font-display), Impact, sans-serif",
+                    }}
                   >
                     {s.n}
                   </span>
@@ -444,7 +458,9 @@ export default function AboutPage() {
                 <div className="p-7">
                   <h3
                     className="text-3xl uppercase text-[#FFE14D]"
-                    style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
+                    style={{
+                      fontFamily: "var(--font-display), Impact, sans-serif",
+                    }}
                   >
                     {s.title}
                   </h3>
@@ -478,7 +494,9 @@ export default function AboutPage() {
             >
               Former Ranji Trophy player
             </p>
-            <p className="mt-1 text-sm font-semibold text-white">Athlete first. Founder next.</p>
+            <p className="mt-1 text-sm font-semibold text-white">
+              Athlete first. Founder next.
+            </p>
           </div>
         </div>
 
@@ -487,16 +505,21 @@ export default function AboutPage() {
             className="text-5xl uppercase leading-[0.95] md:text-7xl"
             style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
           >
-            The founder who never stopped moving.
+            Our Story
           </h2>
 
           <div className="mt-8 max-w-xl space-y-5 text-lg leading-relaxed text-white/80">
             <p>
-              Our founder, a passionate athlete and former Ranji Trophy player, has always believed in an active lifestyle and the power of staying energized.
+              Wellory is built on a journey that brings together sport, fitness,
+              and hospitality. Our founder is a passionate athlete and former
+              Ranji Trophy player who has always believed in an active lifestyle
+              and the power of staying energised.
             </p>
 
             <p>
-              With over 15 years of experience in hospitality, including Drinks at Stake, fine-dine restaurants and Chutneez across Delhi, his journey has always been around great food, drinks and people.
+              With over 15 years in hospitality, including Drinks at Stake,
+              fine-dine restaurants and Chutneez across Delhi, his journey has
+              always been about great food, great drinks and great people.
             </p>
           </div>
 
@@ -505,7 +528,9 @@ export default function AboutPage() {
               <dt className="text-sm font-semibold">In hospitality</dt>
               <dd
                 className="mt-1 text-6xl"
-                style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
+                style={{
+                  fontFamily: "var(--font-display), Impact, sans-serif",
+                }}
               >
                 15+
               </dd>
@@ -516,7 +541,9 @@ export default function AboutPage() {
               <dt className="text-sm font-semibold">Flavours</dt>
               <dd
                 className="mt-1 text-6xl"
-                style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
+                style={{
+                  fontFamily: "var(--font-display), Impact, sans-serif",
+                }}
               >
                 2
               </dd>
@@ -539,7 +566,7 @@ export default function AboutPage() {
           </h2>
 
           <p className="mt-6 text-lg leading-relaxed text-white/80">
-            Wellory is the next chapter of that journey: refreshing energy drinks made for people who keep moving.
+            Our first product is ENARJ, a date-based energy drink with natural caffeine and B vitamins, in Coffee and Lemon flavours. A refreshing way to stay energised through your day, your workout or your next big thing.
           </p>
         </div>
 
@@ -558,7 +585,9 @@ export default function AboutPage() {
             <div className="relative flex h-full min-h-[400px] flex-col justify-end">
               <h3
                 className="text-6xl uppercase"
-                style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
+                style={{
+                  fontFamily: "var(--font-display), Impact, sans-serif",
+                }}
               >
                 Coffee
               </h3>
@@ -583,7 +612,9 @@ export default function AboutPage() {
             <div className="relative flex h-full min-h-[400px] flex-col justify-end">
               <h3
                 className="text-6xl uppercase text-white"
-                style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
+                style={{
+                  fontFamily: "var(--font-display), Impact, sans-serif",
+                }}
               >
                 Lemon
               </h3>
@@ -598,37 +629,34 @@ export default function AboutPage() {
 
       {/* CLOSING */}
       <section className="relative overflow-hidden bg-[#a23e1a] text-black">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-24 md:px-10 lg:grid-cols-2">
-          <h2
-  className="relative z-10 text-[clamp(3rem,8vw,7rem)] uppercase leading-[0.9] text-black"
-  style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
->
-  Keep moving. We&apos;ve got the energy.
-</h2>
+  <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-24 lg:grid-cols-2">
+    <h2
+      className="relative z-10 text-[clamp(3rem,8vw,7rem)] uppercase leading-[0.9] text-white"
+      style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
+    >
+      Keep moving. We&apos;ve got the energy.
+    </h2>
 
+    <div className="absolute inset-y-0 right-0 hidden h-full w-full lg:block">
+      <Image
+        src={IMG.runner}
+        alt="Runner on the move"
+        fill
+        sizes="50vw"
+        className="object-cover"
+      />
+    </div>
 
-          <div className="relative h-64 overflow-hidden rounded-[2rem] border-4 border-[#FFE14D] shadow-[10px_10px_0_#FFE14D] lg:h-80">
-            <Image
-              src={IMG.runner}
-              alt="Runner on the move"
-              fill
-              sizes="(min-width:1024px) 40vw, 100vw"
-              className="object-cover"
-            />
-          </div>
-
-          <div className="lg:col-span-2">
-            <Link
-              href="/products"
-              className="inline-block rounded-full bg-black px-9 py-4 text-lg font-bold text-[#FFE14D] transition hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFE14D]"
-            >
-              Shop Wellory
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      
+    <div className="relative z-10 lg:col-span-2">
+      <Link
+        href="/products"
+        className="inline-block rounded-full bg-black px-9 py-4 text-lg font-bold text-[#FFFFFF] transition hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFE14D]"
+      >
+        SHOP ENARJ
+      </Link>
+    </div>
+  </div>
+</section>
     </main>
   );
 }
