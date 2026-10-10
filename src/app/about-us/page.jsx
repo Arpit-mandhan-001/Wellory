@@ -628,33 +628,41 @@ export default function AboutPage() {
       </section>
 
       {/* CLOSING */}
-      <section className="relative overflow-hidden bg-[#a23e1a] text-black">
-  <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-24 lg:grid-cols-2">
-    <h2
-      className="relative z-10 text-[clamp(3rem,8vw,7rem)] uppercase leading-[0.9] text-white"
-      style={{ fontFamily: "var(--font-display), Impact, sans-serif" }}
-    >
-      Keep moving. We&apos;ve got the energy.
-    </h2>
+     <section className="relative overflow-hidden text-black">
+  <div className="relative mx-auto grid max-w-8xl grid-cols-1 items-center gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-2 lg:py-24">
 
-    <div className="absolute inset-y-0 right-0 hidden h-full w-full lg:block">
+    {/* Background image visible on all screen sizes */}
+    <div className="absolute inset-0 z-0">
       <Image
         src={IMG.runner}
         alt="Runner on the move"
         fill
-        sizes="50vw"
+        sizes="(min-width: 1024px) 50vw, 100vw"
         className="object-cover"
+        priority
       />
+      {/* Optional dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/40" />
     </div>
+
+    <h2
+      className="relative z-10 text-[clamp(2.5rem,8vw,7rem)] uppercase leading-[0.9] text-white"
+      style={{
+        fontFamily: "var(--font-display), Impact, sans-serif",
+      }}
+    >
+      Keep moving. We&apos;ve got the energy.
+    </h2>
 
     <div className="relative z-10 lg:col-span-2">
       <Link
         href="/products"
-        className="inline-block rounded-full bg-black px-9 py-4 text-lg font-bold text-[#FFFFFF] transition hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFE14D]"
+        className="inline-block rounded-full bg-black px-7 py-3 text-base font-bold text-white transition hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFE14D] sm:px-9 sm:py-4 sm:text-lg"
       >
         SHOP ENARJ
       </Link>
     </div>
+
   </div>
 </section>
     </main>
